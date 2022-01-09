@@ -1,5 +1,5 @@
 /**
- * RÃ©cupÃ©ration des todos de l'API et insertion dans la page web
+ * Recuperation des todos de l'API et insertion dans la page web
  */
  function getTodos() {
     console.log('get todos request');
@@ -12,7 +12,7 @@
 }
 
 /**
- * Ajout d'un todo dans l'API contenant le text prÃ©cisÃ© puis ajout dans la page web
+ * Ajout d'un todo dans l'API contenant le text precise puis ajout dans la page web
  * @param {string} text 
  */
  function addTodo(text) {
@@ -25,9 +25,9 @@
 }
 
 /**
- * Basculement du todo identifiÃ© par id d'un Ã©tat rÃ©alisÃ© Ã  un Ã©tat non rÃ©alisÃ© ou inversement dans l'API puis dans la page web
+ * Basculement du todo identifie par id d'un etat realise a  un etat non realise ou inversement dans l'API puis dans la page web
  * @param {number} id identifie le todo
- * @param {boolean} done Ã©tat initial du todo
+ * @param {boolean} done etat initial du todo
  */
     function toggleTodo(id, done) {
     console.log('Toggle todo ' + id + ' request');
@@ -37,9 +37,9 @@
 }
 
 /**
- * Suppression du todo identifiÃ© par id de l'API puis de la page web
- * @param {number} id du todo Ã  supprimer
- * @param {Event} event dÃ©clenchÃ© par le clic sur le bouton de suppression
+ * Suppression du todo identifie par id de l'API puis de la page web
+ * @param {number} id du todo a  supprimer
+ * @param {Event} event declenche par le clic sur le bouton de suppression
  */
     function deleteTodo(id, event) {
     console.log('Delete todo ' + id + ' request');

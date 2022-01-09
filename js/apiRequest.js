@@ -1,7 +1,7 @@
 const apiUrl = 'http://localhost:7000/todos/';
 
 /**
- * RequÃªte de rÃ©cupÃ©ration de l'ensemble des todos de l'API
+ * Requete de recuperation de l'ensemble des todos de l'API
  * @returns une promesse contenant le tableau des todos
  */
 function fetchTodos() {
@@ -10,9 +10,9 @@ function fetchTodos() {
 }
 
 /**
- * RequÃªte sur l'API de suppression du todo id
+ * Requete sur l'API de suppression du todo id
  * @param {number} id 
- * @returns une promesse rÃ©solue Ã  la suppression en BD
+ * @returns une promesse resolue a  la suppression en BD
  */
 function fetchDeleteTodo(id) {
     return fetch(apiUrl + id, {
@@ -21,10 +21,10 @@ function fetchDeleteTodo(id) {
 }
 
 /**
- * RequÃªte sur l'API de basculement de l'Ã©tat du todo id vers le statut done
+ * Requete sur l'API de basculement de l'etat du todo id vers le statut done
  * @param {number} id 
- * @param {*} done Ã©tat du todo
- * @returns une promesse rÃ©solue Ã  la mise Ã  jour du todo contenant les donnÃ©es du todo modifiÃ©
+ * @param {*} done etat du todo
+ * @returns une promesse resolue a  la mise a  jour du todo contenant les donnees du todo modifie
  */
 function fetchToggleTodo(id, done) {
     return fetch(apiUrl + id, {
@@ -41,9 +41,9 @@ function fetchToggleTodo(id, done) {
 }
 
 /**
- * RequÃªte d'ajout d'un todo dans la BD avec le text prÃ©cisÃ©
+ * Requete d'ajout d'un todo dans la BD avec le text precise
  * @param {string} text 
- * @returns une promesse rÃ©solue Ã  l'ajout du todo dans la BD, contenant les donnÃ©es du todo ajoutÃ©
+ * @returns une promesse resolue a  l'ajout du todo dans la BD, contenant les donnees du todo ajoute
  */
 function fetchAddTodo(text) {
     return fetch(apiUrl, {

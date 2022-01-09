@@ -1,7 +1,7 @@
 const todosContainer = document.querySelector("section.todos");
 
 /**
- * AprÃ¨s le chargement de la page
+ * Apres le chargement de la page
  */
 window.addEventListener('load', () => {
     getTodos();
@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
 
 /**
  * Ajout d'un todo dans la page web
- * @param {{id, done, text}} todo Ã  ajouter dans la page web
+ * @param {{id, done, text}} todo a  ajouter dans la page web
  */
 function appendTodoHtml(todo) {
     const article = document.createElement('article');
@@ -41,7 +41,7 @@ function appendTodoHtml(todo) {
 }
 
 /**
- * Supprime tous les fils d'un Ã©lÃ©ment HTML
+ * Supprime tous les fils d'un element HTML
  * @param {htmlElement} htmlElement 
  */
 function emptyElement(htmlElement) {
@@ -58,9 +58,9 @@ function clearTodos() {
 }
 
 /**
- * CrÃ©ation d'un bouton de type 'poubelle' dÃ©clenchant la suppression du todo identifiÃ© par id
- * @param {number} id du todo Ã  supprimer
- * @returns l'Ã©lÃ©ment HTML correspondant au bouton crÃ©Ã©
+ * Creation d'un bouton de type 'poubelle' declenchant la suppression du todo identifie par id
+ * @param {number} id du todo a supprimer
+ * @returns l'element HTML correspondant au bouton cree
  */
 function createTrashButton(id) {
     const trash = document.createElement('input');
@@ -87,9 +87,9 @@ function deleteTodoHtml(id) {
 }
 
 /**
- * Met Ã  jour l'Ã©tat du todo id dans la page web
+ * Met a  jour l'etat du todo id dans la page web
  * @param {number} id identifiant du todo
- * @param {boolean} done Ã©tat du todo
+ * @param {boolean} done etat du todo
  */
 function toggleTodoHtml(id, done) {
     const article = document.querySelector('#article'+id);
