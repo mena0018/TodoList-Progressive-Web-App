@@ -3,89 +3,87 @@
   "name": "todolist-pwa",
   "lang": "en",
   "description": "Sujet de TP todolist-pwa",
-  "background_color": "#00aae7",
-  "theme_color": "#00aae7",
+  "start_url": "/",
+  "background_color": "#87c6f7",
+  "theme_color": "#87c6f7",
   "dir": "ltr",
   "display": "standalone",
   "orientation": "any",
   "icons": [
+    {
+      "src": "./img/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
   {
     "src": "./img/android-icon-192x192-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "192x192",
-    "purpose": "any maskable"
+    "sizes": "192x192"
+  },
+  {
+    "src": "./img/android-icon-192x192-seochecker-manifest-3210.png",
+    "type": "image/png",
+    "sizes": "192x192"
   },
   {
     "src": "./img/apple-icon-180x180-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "180x180",
-    "purpose": "any maskable"
+    "sizes": "180x180"
   },
   {
     "src": "./img/apple-icon-152x152-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "152x152",
-    "purpose": "any maskable"
+    "sizes": "152x152"
   },
   {
     "src": "./img/apple-icon-144x144-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "144x144",
-    "purpose": "any maskable"
+    "sizes": "144x144"
   },
   {
     "src": "./img/apple-icon-120x120-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "120x120",
-    "purpose": "any maskable"
+    "sizes": "120x120"
   },
   {
     "src": "./img/apple-icon-114x114-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "114x114",
-    "purpose": "any maskable"
+    "sizes": "114x114"
   },
   {
     "src": "./img/favicon-96x96-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "96x96",
-    "purpose": "any maskable"
+    "sizes": "96x96"
   },
   {
     "src": "./img/apple-icon-76x76-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "76x76",
-    "purpose": "any maskable"
+    "sizes": "76x76"
   },
   {
     "src": "./img/apple-icon-72x72-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "72x72",
-    "purpose": "any maskable"
+    "sizes": "72x72"
   },
   {
     "src": "./img/apple-icon-60x60-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "60x60",
-    "purpose": "any maskable"
+    "sizes": "60x60"
   },
   {
     "src": "./img/apple-icon-57x57-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "57x57",
-    "purpose": "any maskable"
+    "sizes": "57x57"
   },
   {
     "src": "./img/favicon-32x32-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "32x32",
-    "purpose": "any maskable"
+    "sizes": "32x32"
   },
   {
     "src": "./img/favicon-16x16-seochecker-manifest-3210.png",
     "type": "image/png",
-    "sizes": "16x16",
-    "purpose": "any maskable"
+    "sizes": "16x16"
   }
 ],
 "prefer_related_applications": false
