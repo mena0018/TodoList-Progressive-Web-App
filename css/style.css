@@ -85,6 +85,7 @@ article:hover {
 article.done>span {
     color:#505a74;
     text-decoration: line-through;
+    font-style: italic;
 }
 
 article
