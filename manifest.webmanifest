@@ -13,13 +13,9 @@
     {
       "src": "./img/icon-512x512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     },
-  {
-    "src": "./img/android-icon-192x192-seochecker-manifest-3210.png",
-    "type": "image/png",
-    "sizes": "192x192"
-  },
   {
     "src": "./img/android-icon-192x192-seochecker-manifest-3210.png",
     "type": "image/png",
