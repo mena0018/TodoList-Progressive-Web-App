@@ -10,6 +10,13 @@
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
         <link rel="manifest" href="./manifest.webmanifest"/>
         <link rel="apple-touch-icon" href="./img/apple-icon-57x57-seochecker-manifest-3210.png"/>
+        <script>
+            window.addEventListener('load', () => {
+                if ("serviceWorker" in navigator) {
+                    navigator.serviceWorker.register('./sw.js')
+                }
+            })
+        </script>
     </head>
     <body>
         <header>
@@ -28,6 +35,5 @@
         <script src="js/ihm.js" type='application/javascript'></script>
         <script src="js/apiRequest.js" type='application/javascript'></script>
         <script src="js/controller.js" type='application/javascript'></script>
-        <script src="./app.js" type='application/javascript'></script>
     </body>
 </html>
