@@ -8,7 +8,7 @@ body {
     margin: auto;
     display: flex;
     flex-direction: column;
-    background-color: #bcc2ce;
+    /* background-color: #bcc2ce; */
 }
 
 h1 {
@@ -94,4 +94,20 @@ article
  -webkit-user-select: none; /* Chrome, Safari, OpĆ©ra depuis la version 15 */
  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
  user-select: none; /* PropriĆ©tĆ© standard */
+}
+
+button {
+    opacity: 0;
+    width: 80px;
+    height: 50px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgb(175, 175, 236);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
