@@ -13,14 +13,26 @@ this.addEventListener("install", function (event) {
     caches.open(STATIC_CACHE_NAME).then(function (cache) {
       // Tableau d'URL correspondant aux ressources à mettre en cache.
       return cache.addAll([
-        "/todolist-pwa/",
-        "/todolist-pwa/index.html",
-        "/todolist-pwa/css/style.css",
-        "/todolist-pwa/js/apiRequest.js",
-        "/todolist-pwa/js/controller.js",
-        "/todolist-pwa/js/ihm.js",
-        "/todolist-pwa/img/",
-        "/todolist-pwa/img/favicon-32x32-seochecker-manifest-3210.png",
+        "/",
+        "/index.html",
+        "/css/style.css",
+        "/js/apiRequest.js",
+        "/js/controller.js",
+        "/js/ihm.js",
+        "/img/icon-512x512.png",
+        "/img/android-icon-192x192-seochecker-manifest-3210.png",
+        "/img/apple-icon-180x180-seochecker-manifest-3210.png",
+        "/img/apple-icon-152x152-seochecker-manifest-3210.png",
+        "/img/apple-icon-144x144-seochecker-manifest-3210.png",
+        "/img/apple-icon-120x120-seochecker-manifest-3210.png",
+        "/img/apple-icon-114x114-seochecker-manifest-3210.png",
+        "/img/favicon-96x96-seochecker-manifest-3210.png",
+        "/img/apple-icon-76x76-seochecker-manifest-3210.png",
+        "/img/apple-icon-72x72-seochecker-manifest-3210.png",
+        "/img/apple-icon-60x60-seochecker-manifest-3210.png",
+        "/img/apple-icon-57x57-seochecker-manifest-3210.png",
+        "/img/favicon-32x32-seochecker-manifest-3210.png",
+        "/img/favicon-16x16-seochecker-manifest-3210.png"
       ]);
     })
   );
