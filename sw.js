@@ -57,3 +57,18 @@ self.addEventListener("fetch", (event) => {
   // Si aucun écouteur d'événement ne propose de réponse à cette requête, alors la requête sera gérée par votre navigateur
   // comme si aucun "Service Worker" n'était enregistré
 });
+
+
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          return cacheName != STATIC_CACHE_NAME;
+        }).map(function(cacheName) {
+            return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+})
