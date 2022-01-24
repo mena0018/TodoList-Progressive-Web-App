@@ -95,3 +95,17 @@ function toggleTodoHtml(id, done) {
     const article = document.querySelector('#article'+id);
     article.classList.toggle('done', done);
 }
+
+/**
+ * Démarre un indicateur d’activité (Progress indicators, spinner, message, …)
+ */
+function startSpinner() {
+    console.log("Chargement en cours");
+}
+
+/**
+ * Arrête un indicateur d’activité (Progress indicators, spinner, message, …)
+ */
+function stopSpinner() {
+    console.log("Done !");
+}
