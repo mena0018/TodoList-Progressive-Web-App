@@ -1,4 +1,6 @@
 const todosContainer = document.querySelector("section.todos");
+const spinner = document.querySelector(".spinner");
+
 
 /**
  * Apres le chargement de la page
@@ -107,15 +109,15 @@ function startSpinner() {
  * Arrête un indicateur d’activité (Progress indicators, spinner, message, …)
  */
 function stopSpinner() {
-    console.log("Done !");
+    console.log("Done !");    
+    spinner.classList.add("hidden")
 }
 
 /**
- * Vide la page des todos existant puis parcourt les nouveaux todos pour les ajouter dans la page web
+ * Fonction qui sera appelée lorsque aucune donnée n’a pu être récupérée, 
+ * ni du cache, ni du réseau. Un console.log() ou une alert suffira pour l’instant.
  */
-function updatePage(todos) {
-    clearTodos();
-    todos.forEach(todo => {
-        appendTodoHtml(todo);
-    });
+function showErrorMessage(error)
+{
+    window.alert(error)
 }

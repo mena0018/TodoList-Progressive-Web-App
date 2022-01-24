@@ -115,3 +115,8 @@ header {
     justify-content: space-around;
     align-items: center;
 }
+
+.spinner {
+    width: 50px;
+    margin: auto;
+}
