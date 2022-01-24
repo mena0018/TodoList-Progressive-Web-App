@@ -3,12 +3,36 @@
  */
  function getTodos() {
     console.log('get todos request');
+    const apiUrl = 'http://localhost:7000/todos/';
+    let CACHE_NAME = "todosList"
 
     clearTodos();
 
-    fetchTodos().then(todos => {
-        todos.forEach(todo => appendTodoHtml(todo));
+    var networkDataReceived = false;
+
+    startSpinner();
+
+   // fetch fresh data
+    var networkUpdate = fetch(apiUrl).then(function(response) {
+        return response.json();
+    }).then(function(data) {
+        networkDataReceived = true;
+        updatePage(data);
     });
+    
+    // fetch cached data
+    caches.match(CACHE_NAME).then(function(response) {
+        if (!response) throw Error("No data");
+        return response.json();
+    }).then(function(data) {
+        // don't overwrite newer network data
+        if (!networkDataReceived) {
+        updatePage(data);
+        }
+    }).catch(function() {
+        // we didn't get cached data, the network is our last hope:
+        return networkUpdate;
+    }).catch(showErrorMessage).then(stopSpinner());
 }
 
 /**
