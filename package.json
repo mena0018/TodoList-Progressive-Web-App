@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "lighthouse": "^9.2.0"
+    "lighthouse": "^9.2.0",
+    "material-components-web": "^13.0.0"
   }
 }
