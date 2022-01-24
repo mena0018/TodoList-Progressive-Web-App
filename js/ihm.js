@@ -109,3 +109,13 @@ function startSpinner() {
 function stopSpinner() {
     console.log("Done !");
 }
+
+/**
+ * Vide la page des todos existant puis parcourt les nouveaux todos pour les ajouter dans la page web
+ */
+function updatePage(todos) {
+    clearTodos();
+    todos.forEach(todo => {
+        appendTodoHtml(todo);
+    });
+}
