@@ -1,38 +1,43 @@
 /**
+ * Vide la page des todos existant puis parcourt les nouveaux todos pour les ajouter dans la page web
+ */
+ function updatePage(todos) {
+    clearTodos();
+    todos.forEach(todo => {
+        appendTodoHtml(todo);
+    });
+}
+
+/**
  * Recuperation des todos de l'API et insertion dans la page web
  */
  function getTodos() {
-    console.log('get todos request');
-    const apiUrl = 'http://localhost:7000/todos/';
-    let CACHE_NAME = "todosList"
-
-    clearTodos();
-
     var networkDataReceived = false;
 
     startSpinner();
 
-   // fetch fresh data
-    var networkUpdate = fetch(apiUrl).then(function(response) {
-        return response.json();
-    }).then(function(data) {
+   // Requête à l'API pour récupérer les dernières données
+    var networkUpdate = fetchTodos().then(function(data) {
         networkDataReceived = true;
         updatePage(data);
     });
     
-    // fetch cached data
-    caches.match(CACHE_NAME).then(function(response) {
-        if (!response) throw Error("No data");
-        return response.json();
+    // Va chercher les données dans le cache
+    caches.match(apiUrl)
+      .then(function(response) {
+            if (!response) throw Error("No data");
+
+            return response.json();
     }).then(function(data) {
-        // don't overwrite newer network data
+        // Ne pas écraser les données réseau les plus récentes
         if (!networkDataReceived) {
-        updatePage(data);
+            updatePage(data);
         }
     }).catch(function() {
-        // we didn't get cached data, the network is our last hope:
+        // Nous n'avons pas obtenu de données en cache, le réseau est notre dernier espoir :
         return networkUpdate;
-    }).catch(showErrorMessage).then(stopSpinner());
+    }).catch((error) => showErrorMessage(error))
+      .then(stopSpinner);
 }
 
 /**

@@ -5,6 +5,7 @@
  */
 
 const STATIC_CACHE_NAME = "todosApp.v2";
+const CACHE_NAME = "todosList";
 
 this.addEventListener("install", function (event) {
   // Garantit que le Service Worker ne s'installera pas tant que le code à l'intérieur de
@@ -39,6 +40,19 @@ this.addEventListener("install", function (event) {
   );
 });
 
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          return cacheName != STATIC_CACHE_NAME;
+        }).map(function(cacheName) {
+            return caches.delete(cacheName);
+        })
+      );
+    })
+  );
+})
 
 self.addEventListener('fetch', function (event) {
   if (event.request.url.startsWith("http://localhost:3000/")) {
@@ -56,17 +70,15 @@ self.addEventListener('fetch', function (event) {
   }
 });
 
-
-self.addEventListener('activate', function(event) {
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.filter(function(cacheName) {
-          return cacheName != STATIC_CACHE_NAME;
-        }).map(function(cacheName) {
-            return caches.delete(cacheName);
-        })
-      );
-    })
-  );
-})
+self.addEventListener('fetch', function (event) {
+  if (event.request.url.startsWith("http://localhost:7000/")) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return fetch(event.request).then(function(response) {
+          cache.put(event.request, response.clone());
+          return response;
+        });
+      })
+    );
+  }
+});
