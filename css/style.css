@@ -36,20 +36,34 @@ form[name="addTodo"] {
 input[type="text"] {
     flex: 1;
     margin-left: 10px;
-    border-radius: 5px;
+    border-radius: 7px;
+    background: #f1f1f1;
 }
 
 input[type="submit"] {
-    padding: 5px;
+    display: flex;
+    padding: 10px;
     margin-left: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 3px #202f57;
+    font-weight: lighter;
+    background-color: #ebf2ff;
 }
+
+input[type="submit"]:active {
+    box-shadow: 0 0 #202f57;
+    top: 3px;
+}
+
 
 form[name="addTodo"]>input,
 form[name="addTodo"]>label {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 540px) {
@@ -97,13 +111,24 @@ article
 
 .btn {
     display: flex;
-    padding: 15px;
-    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
     cursor: pointer;
-    background-color: rgb(184, 212, 228);
     font-size: 16px;
     height: 50px;
+    transition-duration: 0.8s;
+    background:#a5bcdd;
 }
+
+.btn:hover {
+    background-color: #3e5777;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
+    0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 
 .hidden {
     display: none;
