@@ -35,9 +35,15 @@ this.addEventListener("install", function (event) {
         "/img/apple-icon-57x57-seochecker-manifest-3210.png",
         "/img/favicon-32x32-seochecker-manifest-3210.png",
         "/img/favicon-16x16-seochecker-manifest-3210.png",
+        // Material Design 
         "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css",
         "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js",
+        // Material Icon 
         "https://fonts.googleapis.com/icon?family=Material+Icons",
+        // Google Fonts
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
+        "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,300&family=Ubuntu&display=swap"
       ]);
     })
   );
