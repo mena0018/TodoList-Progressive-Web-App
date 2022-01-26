@@ -40,10 +40,8 @@ this.addEventListener("install", function (event) {
         "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js",
         // Material Icon 
         "https://fonts.googleapis.com/icon?family=Material+Icons",
-        // Google Fonts
-        "https://fonts.googleapis.com",
-        "https://fonts.gstatic.com",
-        "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,300&family=Ubuntu&display=swap"
+        // Google Font 
+        'https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'
       ]);
     })
   );
