@@ -68,14 +68,14 @@ function createTrashButton(id) {
     const trash = document.createElement('input');
     trash.type = 'button';
     trash.name = 'trash';
-    trash.value = 'X';
+    trash.className = 'material-icons';
+    trash.value = "delete";
 
     trash.addEventListener('click', (event) => {
         event.stopPropagation();
 
         deleteTodo(id, event);
     });
-    
     return trash;
 }
 
