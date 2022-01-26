@@ -1,3 +1,16 @@
+/* Material Icon */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); 
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
 html {
     width: 100%;
     font-family: Ubuntu, sans-serif;
@@ -8,7 +21,6 @@ body {
     margin: auto;
     display: flex;
     flex-direction: column;
-    /* background-color: #bcc2ce; */
 }
 
 h1 {
@@ -101,8 +113,7 @@ article.done>span {
     font-style: italic;
 }
 
-article
-{
+article{
  -moz-user-select: none; /* Firefox */
  -webkit-user-select: none; /* Chrome, Safari, OpĆ©ra depuis la version 15 */
  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
@@ -128,7 +139,6 @@ article
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 
     0 17px 50px 0 rgba(0,0,0,0.19);
 }
-
 
 .hidden {
     display: none;
