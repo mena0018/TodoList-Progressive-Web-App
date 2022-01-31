@@ -20,7 +20,10 @@
     var networkUpdate = fetchTodos().then(function(data) {
         networkDataReceived = true;
         updatePage(data);
-    });
+       
+    }).catch(() =>
+        // la liste des tâches n’a pas pu être obtenue => Mode Hors Ligne
+        setOfflineMode())
     
     // Va chercher les données dans le cache
     caches.match(apiUrl)
@@ -37,7 +40,7 @@
         // Nous n'avons pas obtenu de données en cache, le réseau est notre dernier espoir :
         return networkUpdate;
     }).catch((error) => showErrorMessage(error))
-      .then(stopSpinner);
+      .then(stopSpinner); 
 }
 
 /**
