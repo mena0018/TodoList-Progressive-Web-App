@@ -62,7 +62,13 @@ self.addEventListener('activate', function(event) {
 })
 
 self.addEventListener('fetch', function (event) {
-  if (event.request.url.startsWith("http://localhost:3000/")) {
+  if (
+    event.request.url.startsWith("http://localhost:3000/") ||
+    event.request.url.startsWith("https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css") ||
+    event.request.url.startsWith("https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js") || 
+    event.request.url.startsWith("https://fonts.googleapis.com/icon?family=Material+Icons") ||
+    event.request.url.startsWith("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap")
+  ){
     event.respondWith(
       caches.open(STATIC_CACHE_NAME).then(function (cache) {
         return cache.match(event.request).then(function (response) {
