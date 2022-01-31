@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@use "@material/banner";
 
 html {
     width: 100%;
@@ -143,4 +143,11 @@ header {
 .spinner {
     width: 50px;
     margin: auto;
+}
+
+.mdc-banner {
+    margin
+    background-color: #a5bcdd;
+    border-radius: 5px;
+    margin:15px;
 }

@@ -8,8 +8,6 @@
     <meta name="keywords" content="ressources pédagogiques, programmation Web, DUT informatique, IUT Reims, Progressive Web App, Javascript"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#87c6f7" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/background.css" type="text/css" />
     <link rel="manifest" href="./manifest.webmanifest"/>
     <!-- Material Design -->
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
@@ -17,6 +15,10 @@
     <!-- Material Icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="apple-touch-icon" href="./img/apple-icon-57x57-seochecker-manifest-3210.png"/>
+     <!-- Font Ubuntu -->
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/background.css" type="text/css" />
     <script>
       window.addEventListener("load", () => {
         if ("serviceWorker" in navigator) {
@@ -39,6 +41,27 @@
     </section>
     <section class="todos"></section>
       <img class="spinner" src="./img/2.gif">
+
+
+      <!-- Averti l'utilisateur qu'on est en mode Hors ligne -->
+      <div class="mdc-banner" role="banner">
+        <div class="mdc-banner__content"
+             role="alertdialog"
+             aria-live="assertive">
+          <div class="mdc-banner__graphic-text-wrapper">
+            <div class="mdc-banner__text">
+              API Innacessible : Les tâches affichées peuvent ne pas représenter la réalité
+            </div>
+          </div>
+          <div class="mdc-banner__actions">
+            <button type="button" class="mdc-button mdc-banner__primary-action">
+              <div class="mdc-button__ripple"></div>
+              <div class="mdc-button__label">Entrer</div>
+            </button>
+          </div>
+        </div>
+      </div>  
+
 
     <script src="js/ihm.js" type="application/javascript"></script>
     <script src="js/apiRequest.js" type="application/javascript"></script>
