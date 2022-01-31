@@ -1,6 +1,7 @@
 const todosContainer = document.querySelector("section.todos");
 const spinner = document.querySelector(".spinner");
-
+const MDCBanner = mdc.banner.MDCBanner;
+const banner = new MDCBanner(document.querySelector('.mdc-banner'));
 
 /**
  * Apres le chargement de la page
@@ -120,4 +121,14 @@ function stopSpinner() {
 function showErrorMessage(error)
 {
     window.alert(error)
+}
+
+
+/**
+ * Déclenche l’affichage d’une bannière qui indiquera à l’utilisateur que l’api n’est pas accessible
+ *  et que les tâches affichées peuvent ne pas représenter la réalité.
+ */
+function setOfflineMode()
+{
+    banner.open()
 }
