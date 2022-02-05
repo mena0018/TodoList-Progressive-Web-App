@@ -1,7 +1,9 @@
 const todosContainer = document.querySelector("section.todos");
 const spinner = document.querySelector(".spinner");
 const MDCBanner = mdc.banner.MDCBanner;
+const MDCDialog = mdc.dialog.MDCDialog;
 const banner = new MDCBanner(document.querySelector('.mdc-banner'));
+const dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
 
 /**
  * Apres le chargement de la page
@@ -118,9 +120,9 @@ function stopSpinner() {
  * Fonction qui sera appelée lorsque aucune donnée n’a pu être récupérée, 
  * ni du cache, ni du réseau. Un console.log() ou une alert suffira pour l’instant.
  */
-function showErrorMessage(error)
+function showErrorMessage()
 {
-    window.alert(error)
+    dialog.open()
 }
 
 

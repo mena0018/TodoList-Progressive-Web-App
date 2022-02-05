@@ -1,5 +1,8 @@
 @use "@material/banner";
 
+@use "@material/dialog";
+@include dialog.core-styles;
+
 html {
     width: 100%;
     font-family: 'Ubuntu', Arial, sans-serif;
@@ -145,9 +148,29 @@ header {
     margin: auto;
 }
 
-.mdc-banner {
-    margin
-    background-color: #a5bcdd;
+.mdc-banner--open {
     border-radius: 5px;
     margin:15px;
+    background-color: #a5bcdd;
+    font-family: 'Ubuntu', Arial, sans-serif;
+}
+
+.mdc-button__label {
+    color:#202f57;
+    font-weight: bolder;
+    font-family: 'Ubuntu', Arial, sans-serif;
+}
+
+.mdc-banner__text {
+    font-family: 'Ubuntu', Arial, sans-serif !important;
+}
+
+.mdc-dialog .mdc-dialog__surface  {
+    background-color: #b1b9c4;
+}
+
+.mdc-dialog__content {
+    color:#202f57;
+    font-weight: bolder;
+    font-family: 'Ubuntu', Arial, sans-serif !important;
 }

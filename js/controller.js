@@ -39,7 +39,7 @@
     }).catch(function() {
         // Nous n'avons pas obtenu de données en cache, le réseau est notre dernier espoir :
         return networkUpdate;
-    }).catch((error) => showErrorMessage(error))
+    }).catch((error) => showErrorMessage())
       .then(stopSpinner); 
 }
 

@@ -43,6 +43,30 @@
       <img class="spinner" src="./img/2.gif">
 
 
+
+       <!--  Window Alert -->
+      <div class="mdc-dialog">
+        <div class="mdc-dialog__container">
+          <div class="mdc-dialog__surface"
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="my-dialog-title"
+            aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__content" id="my-dialog-content">
+              Aucune donnée n’a pu être récupérée, ni du cache, ni du réseau
+            </div>
+            <div class="mdc-dialog__actions">
+              <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="discard">
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">Compris</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
+      </div>
+
+
       <!-- Averti l'utilisateur qu'on est en mode Hors ligne -->
       <div class="mdc-banner" role="banner">
         <div class="mdc-banner__content"
@@ -56,7 +80,7 @@
           <div class="mdc-banner__actions">
             <button type="button" class="mdc-button mdc-banner__primary-action">
               <div class="mdc-button__ripple"></div>
-              <div class="mdc-button__label">Entrer</div>
+              <div class="mdc-button__label">Compris</div>
             </button>
           </div>
         </div>
