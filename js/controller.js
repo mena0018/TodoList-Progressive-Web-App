@@ -53,7 +53,10 @@
     fetchAddTodo(text)
         .then(data => {
             appendTodoHtml(data);
-        });
+        })
+        .catch(() =>
+        // => Mode Hors Ligne
+        setOfflineMode());
 }
 
 /**
@@ -61,11 +64,14 @@
  * @param {number} id identifie le todo
  * @param {boolean} done etat initial du todo
  */
-    function toggleTodo(id, done) {
+function toggleTodo(id, done) {
     console.log('Toggle todo ' + id + ' request');
 
     fetchToggleTodo(id, !done)
-        .then(data => toggleTodoHtml(id, data.done));
+        .then(data => toggleTodoHtml(id, data.done))
+        .catch(() =>
+        // => Mode Hors Ligne
+        setOfflineMode());
 }
 
 /**
@@ -73,9 +79,13 @@
  * @param {number} id du todo a  supprimer
  * @param {Event} event declenche par le clic sur le bouton de suppression
  */
-    function deleteTodo(id, event) {
+function deleteTodo(id, event) {
     console.log('Delete todo ' + id + ' request');
-
+    
     fetchDeleteTodo(id)
-        .then(() => deleteTodoHtml(id));
+        .then(() => deleteTodoHtml(id))
+        .catch(() => {
+            // => Mode Hors Ligne
+            setOfflineMode()
+        })
 }

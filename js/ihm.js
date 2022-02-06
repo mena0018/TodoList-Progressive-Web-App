@@ -1,9 +1,5 @@
 const todosContainer = document.querySelector("section.todos");
 const spinner = document.querySelector(".spinner");
-const MDCBanner = mdc.banner.MDCBanner;
-const MDCDialog = mdc.dialog.MDCDialog;
-const banner = new MDCBanner(document.querySelector('.mdc-banner'));
-const dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
 
 /**
  * Apres le chargement de la page
@@ -18,7 +14,7 @@ window.addEventListener('load', () => {
         if (text) {
             formAdd.todo.value = '';
 
-            addTodo(text);
+            disabledTodoActions(addTodo(text));
         }
     });
 });
@@ -40,7 +36,7 @@ function appendTodoHtml(todo) {
         article.classList.add('done');
     }
 
-    article.addEventListener('click', () => toggleTodo(todo.id, article.classList.contains('done')));
+    article.addEventListener('click', () => disabledTodoActions(toggleTodo(todo.id, article.classList.contains('done'))));
 
     todosContainer.appendChild(article);
 }
@@ -77,7 +73,7 @@ function createTrashButton(id) {
     trash.addEventListener('click', (event) => {
         event.stopPropagation();
 
-        deleteTodo(id, event);
+        disabledTodoActions(deleteTodo(id, event))
     });
     return trash;
 }
@@ -122,15 +118,28 @@ function stopSpinner() {
  */
 function showErrorMessage()
 {
+    const MDCDialog = mdc.dialog.MDCDialog;
+    const dialog = new MDCDialog(document.querySelector('.mdc-dialog'));
     dialog.open()
 }
 
 
 /**
- * Déclenche l’affichage d’une bannière qui indiquera à l’utilisateur que l’api n’est pas accessible
- *  et que les tâches affichées peuvent ne pas représenter la réalité.
+ * Déclenche l’affichage d’une bannière qui indiquera à l’utilisateur que l’api n’est pas * accessible et que les tâches affichées peuvent ne pas représenter la réalité.
  */
 function setOfflineMode()
 {
+    const MDCBanner = mdc.banner.MDCBanner;
+    const banner = new MDCBanner(document.querySelector('.mdc-banner'));
     banner.open()
 }
+
+/**
+ * Désactive toutes les modifications possibles sur les tâches (ajout,
+ *  suppression, modification) en désactivant les actions concernés
+ */
+function disabledTodoActions(callback)
+{
+    return navigator.onLine ? callback :false;
+}
+
