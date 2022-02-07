@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
         if (text) {
             formAdd.todo.value = '';
 
-            disabledTodoActions(addTodo(text));
+            addTodo(text);
         }
     });
 });
@@ -36,7 +36,7 @@ function appendTodoHtml(todo) {
         article.classList.add('done');
     }
 
-    article.addEventListener('click', () => disabledTodoActions(toggleTodo(todo.id, article.classList.contains('done'))));
+    article.addEventListener('click', () => toggleTodo(todo.id, article.classList.contains('done')));
 
     todosContainer.appendChild(article);
 }
@@ -73,7 +73,7 @@ function createTrashButton(id) {
     trash.addEventListener('click', (event) => {
         event.stopPropagation();
 
-        disabledTodoActions(deleteTodo(id, event))
+        deleteTodo(id,event)
     });
     return trash;
 }
@@ -132,14 +132,22 @@ function setOfflineMode()
     const MDCBanner = mdc.banner.MDCBanner;
     const banner = new MDCBanner(document.querySelector('.mdc-banner'));
     banner.open()
+
+    disabledTodoActions()
 }
 
 /**
  * Désactive toutes les modifications possibles sur les tâches (ajout,
  *  suppression, modification) en désactivant les actions concernés
  */
-function disabledTodoActions(callback)
+function disabledTodoActions()
 {
-    return navigator.onLine ? callback :false;
-}
+    const trashes = document.getElementsByName("trash");
 
+    trashes.forEach(trash => {
+        trash.setAttribute('disabled', true)
+    })
+
+    const sendTodo = document.getElementsByName("send-todo")[0];
+    sendTodo.setAttribute('disabled', true);
+}

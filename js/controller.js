@@ -81,11 +81,11 @@ function toggleTodo(id, done) {
  */
 function deleteTodo(id, event) {
     console.log('Delete todo ' + id + ' request');
-    
+
     fetchDeleteTodo(id)
         .then(() => deleteTodoHtml(id))
-        .catch(() => {
+        .catch(() => 
             // => Mode Hors Ligne
             setOfflineMode()
-        })
+        )
 }
