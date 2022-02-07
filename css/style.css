@@ -3,6 +3,8 @@
 @use "@material/dialog";
 @include dialog.core-styles;
 
+@use "@material/snackbar/mdc-snackbar";
+
 html {
     width: 100%;
     font-family: 'Ubuntu', Arial, sans-serif;
@@ -171,6 +173,16 @@ header {
 
 .mdc-dialog__content {
     color:#202f57;
+    font-weight: bolder;
+    font-family: 'Ubuntu', Arial, sans-serif !important;
+}
+
+.mdc-snackbar__surface {
+    background-color: #01579b;
+}
+
+.mdc-snackbar .mdc-snackbar__surface .mdc-snackbar__label {
+    color: #ececec;
     font-weight: bolder;
     font-family: 'Ubuntu', Arial, sans-serif !important;
 }

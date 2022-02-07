@@ -78,14 +78,31 @@
             </div>
           </div>
           <div class="mdc-banner__actions">
-            <button type="button" class="mdc-button mdc-banner__primary-action">
+            <button name="btn-test" type="button" class="mdc-button mdc-banner__primary-action">
               <div class="mdc-button__ripple"></div>
-              <div class="mdc-button__label">Compris</div>
+              <div  class="mdc-button__label">
+                Tester la connexion
+              </div>
             </button>
           </div>
         </div>
       </div>  
 
+
+      <!-- Averti l'utilisateur qu'on est en mode En ligne -->
+      <aside class="mdc-snackbar">
+        <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+          <div class="mdc-snackbar__label" aria-atomic="false">
+            Vous êtes de nouveau connecté en mode en ligne
+          </div>
+          <div class="mdc-snackbar__actions" aria-atomic="true">
+            <button type="button" class="mdc-button mdc-snackbar__action">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">D'accord</span>
+            </button>
+          </div>
+        </div>
+      </aside>
 
     <script src="js/ihm.js" type="application/javascript"></script>
     <script src="js/apiRequest.js" type="application/javascript"></script>

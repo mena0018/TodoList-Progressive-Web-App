@@ -84,7 +84,7 @@ self.addEventListener('fetch', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
-  if (event.request.url.startsWith("http://localhost:7000/")) {
+  if (event.request.url.startsWith("http://localhost:7000/") && event.request.method === 'GET') {
     event.respondWith(
       caches.open(CACHE_NAME).then(function(cache) {
         return fetch(event.request).then(function(response) {

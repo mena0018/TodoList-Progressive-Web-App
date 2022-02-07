@@ -123,9 +123,15 @@ function showErrorMessage()
     dialog.open()
 }
 
+// Bouton permettant à l’utilisateur de tester par lui-même un retour de l’accès aux données
+const testConection = document.getElementsByName('btn-test')[0];
+testConection.addEventListener('click', () => {
+    tryDataRequest()
+})
 
 /**
- * Déclenche l’affichage d’une bannière qui indiquera à l’utilisateur que l’api n’est pas * accessible et que les tâches affichées peuvent ne pas représenter la réalité.
+ * Déclenche l’affichage d’une bannière qui indiquera à l’utilisateur que l’api n’est pas 
+ *  accessible et que les tâches affichées peuvent ne pas représenter la réalité.
  */
 function setOfflineMode()
 {
@@ -133,6 +139,7 @@ function setOfflineMode()
     const banner = new MDCBanner(document.querySelector('.mdc-banner'));
     banner.open()
 
+    // Désactive toutes les modifications possibles sur les tâches
     disabledTodoActions()
 }
 
@@ -143,11 +150,34 @@ function setOfflineMode()
 function disabledTodoActions()
 {
     const trashes = document.getElementsByName("trash");
-
     trashes.forEach(trash => {
         trash.setAttribute('disabled', true)
     })
-
     const sendTodo = document.getElementsByName("send-todo")[0];
     sendTodo.setAttribute('disabled', true);
 }
+
+/**
+ * Déclenche l’affichage d’une bannière qui indiquera à l’utilisateur du retour du réseau 
+ * à l’aide d’un composant Snackbars avant de repasser l’application en mode “en ligne”
+ * en réactivant toutes les fonctionnalités sur les tâches.
+ */
+ function setOnlineMode()
+ {
+     // Affichage de la Snackbar
+     const MDCSnackbar = mdc.snackbar.MDCSnackbar;
+     const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
+     snackbar.open()
+
+     // Re-passage de l'application en mode en ligne, en réactivant les actions
+     const trashes = document.getElementsByName("trash");
+     trashes.forEach(trash => {
+         trash.setAttribute('disabled', false)
+     })
+     const sendTodo = document.getElementsByName("send-todo")[0];
+     sendTodo.disabled = false;
+
+     // Suppression du bouton de test
+     const testConection = document.getElementsByName('btn-test')[0];
+     testConection.classList.add('hidden');
+ }

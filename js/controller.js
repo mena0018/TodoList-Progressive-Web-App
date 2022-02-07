@@ -89,3 +89,18 @@ function deleteTodo(id, event) {
             setOfflineMode()
         )
 }
+
+/**
+ * Permet de re-tenter de télécharger les tâches avec un boutton.
+ * Effectue une requète sur la liste des tâches et en cas de succès,
+ * met à jour la page avec les nouvelles données. En cas d'échec,
+ * informe l’utilisateur en réaffichant la bannière.
+ */
+function tryDataRequest() {
+    fetchTodos()
+        .then(function(data) {
+            setOnlineMode();
+            updatePage(data)
+        })
+        .catch(setOfflineMode)
+}
