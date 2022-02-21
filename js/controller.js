@@ -1,7 +1,7 @@
 /**
  * Vide la page des todos existant puis parcourt les nouveaux todos pour les ajouter dans la page web
  */
- function updatePage(todos) {
+function updatePage(todos) {
     clearTodos();
     todos.forEach(todo => {
         appendTodoHtml(todo);
@@ -11,55 +11,51 @@
 /**
  * Recuperation des todos de l'API et insertion dans la page web
  */
- function getTodos() {
+function getTodos() {
     var networkDataReceived = false;
 
     startSpinner();
 
-   // Requête à l'API pour récupérer les dernières données
-    var networkUpdate = fetchTodos().then(function(data) {
+    // Requête à l'API pour récupérer les dernières données
+    var networkUpdate = fetchTodos().then(function (data) {
         networkDataReceived = true;
         updatePage(data);
-       
+
     }).catch(() =>
         // la liste des tâches n’a pas pu être obtenue => Mode Hors Ligne
         setOfflineMode())
-    
+
     // Va chercher les données dans le cache
     caches.match(apiUrl)
-      .then(function(response) {
+        .then(function (response) {
             if (!response) throw Error("No data");
 
             return response.json();
-    }).then(function(data) {
-        // Ne pas écraser les données réseau les plus récentes
-        if (!networkDataReceived) {
-            updatePage(data);
-        }
-    }).catch(function() {
-        // Nous n'avons pas obtenu de données en cache, le réseau est notre dernier espoir :
-        return networkUpdate;
-    }).catch((error) => showErrorMessage())
-      .then(stopSpinner); 
+        }).then(function (data) {
+            // Ne pas écraser les données réseau les plus récentes
+            if (!networkDataReceived) {
+                updatePage(data);
+            }
+        }).catch(function () {
+            // Nous n'avons pas obtenu de données en cache, le réseau est notre dernier espoir :
+            return networkUpdate;
+        }).catch((error) => showErrorMessage())
+        .then(stopSpinner);
 }
 
 /**
  * Ajout d'un todo dans l'API contenant le text precise puis ajout dans la page web
  * @param {string} text 
  */
- function addTodo(text) {
+function addTodo(text) {
     console.log('Add todo : ', text);
     startSpinner()
 
     fetchAddTodo(text)
-        .then(data => {
-            appendTodoHtml(data)
-            updatePage(data)
-            stopSpinner();
-        })
-        .catch(() =>
+        .then(getTodos)
         // => Mode Hors Ligne
-        setOfflineMode());
+        .catch(() => setOfflineMode())
+        .then(stopSpinner)
 }
 
 /**
@@ -72,13 +68,10 @@ function toggleTodo(id, done) {
     startSpinner()
 
     fetchToggleTodo(id, !done)
-        .then(data => {
-            toggleTodoHtml(id, data.done)
-            stopSpinner();
-        })
-        .catch(() =>
+        .then(getTodos)
         // => Mode Hors Ligne
-        setOfflineMode());
+        .catch(() => setOfflineMode())
+        .then(stopSpinner)
 }
 
 /**
@@ -91,14 +84,10 @@ function deleteTodo(id, event) {
     startSpinner()
 
     fetchDeleteTodo(id)
-        .then(() => {
-            deleteTodoHtml(id)
-            stopSpinner();
-        })
-        .catch(() => {
-            // => Mode Hors Ligne
-            setOfflineMode()
-        })
+        .then(getTodos)
+        // => Mode Hors Ligne
+        .catch(() => setOfflineMode())
+        .then(stopSpinner)
 }
 
 
@@ -110,9 +99,9 @@ function deleteTodo(id, event) {
  */
 function tryDataRequest() {
     startSpinner()
-    
+
     fetchTodos()
-        .then(function(data) {
+        .then(function (data) {
             setOnlineMode();
             updatePage(data)
             stopSpinner();
