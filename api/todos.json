@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "text": "Chercher les enfants à l'école",
+      "done": false,
+      "id": 1
+    },
+    {
+      "text": "Chercher les enfants aux sport",
+      "done": false,
+      "id": 3
+    },
+    {
+      "text": "Passer chez le coiffeur",
+      "done": false,
+      "id": 4
+    }
+  ]
+}
