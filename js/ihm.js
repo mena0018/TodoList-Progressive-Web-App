@@ -101,6 +101,7 @@ function toggleTodoHtml(id, done) {
  * Démarre un indicateur d’activité (Progress indicators, spinner, message, …)
  */
 function startSpinner() {
+    spinner.classList.remove("hidden")
     console.log("Chargement en cours");
 }
 

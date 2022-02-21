@@ -49,10 +49,13 @@
  */
  function addTodo(text) {
     console.log('Add todo : ', text);
+    startSpinner()
 
     fetchAddTodo(text)
         .then(data => {
-            appendTodoHtml(data);
+            appendTodoHtml(data)
+            updatePage(data)
+            stopSpinner();
         })
         .catch(() =>
         // => Mode Hors Ligne
@@ -66,9 +69,13 @@
  */
 function toggleTodo(id, done) {
     console.log('Toggle todo ' + id + ' request');
+    startSpinner()
 
     fetchToggleTodo(id, !done)
-        .then(data => toggleTodoHtml(id, data.done))
+        .then(data => {
+            toggleTodoHtml(id, data.done)
+            stopSpinner();
+        })
         .catch(() =>
         // => Mode Hors Ligne
         setOfflineMode());
@@ -81,14 +88,19 @@ function toggleTodo(id, done) {
  */
 function deleteTodo(id, event) {
     console.log('Delete todo ' + id + ' request');
+    startSpinner()
 
     fetchDeleteTodo(id)
-        .then(() => deleteTodoHtml(id))
-        .catch(() => 
+        .then(() => {
+            deleteTodoHtml(id)
+            stopSpinner();
+        })
+        .catch(() => {
             // => Mode Hors Ligne
             setOfflineMode()
-        )
+        })
 }
+
 
 /**
  * Permet de re-tenter de télécharger les tâches avec un boutton.
@@ -97,10 +109,13 @@ function deleteTodo(id, event) {
  * informe l’utilisateur en réaffichant la bannière.
  */
 function tryDataRequest() {
+    startSpinner()
+    
     fetchTodos()
         .then(function(data) {
             setOnlineMode();
             updatePage(data)
+            stopSpinner();
         })
         .catch(setOfflineMode)
 }
